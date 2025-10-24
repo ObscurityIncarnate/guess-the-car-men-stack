@@ -1,6 +1,5 @@
-import { name } from "ejs";
 import mongoose from "mongoose";
-car = {
+const car = {
     name: {type: String, required: true},
     description: {type: String},
     image: {type: String, required: true},

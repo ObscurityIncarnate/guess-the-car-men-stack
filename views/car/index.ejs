@@ -6,7 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <%- include("../partials/nav.ejs") %>
-    <h1>Homepage</h1>
+    <%- include("../../partials/nav.ejs") %>
+    <h1>All Cars</h1>
+    <ul>
+        <% cars.forEach(car => { %>
+            <li></li>
+        <% }); %>
+    </ul>
 </body>
 </html>
