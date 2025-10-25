@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/cars/123?_method=PUT" method="POST">
+        <div>
+            <label for="manufacturer">Please enter the cars brand or manufacturer</label>
+            <input type="text"name="manufacturer" placeholder="E.g Honda, Mclaren" required>
+        </div>
+
+        <div>
+            <label for="name">Enter the cars model</label>
+            <input type="text"name="name" placeholder="E.g Cayenne, Corolla" required>
+        </div>
+        
+        <div>
+            <label for="manufacture_date">Please specify when this car came into production</label>
+            <input type="date" id="manufacture_date" name="manufacture_date" placeholder="Enter the car model" min="1900-01-01" >
+        </div>
+        <div>
+            <label for="image">Please provide a link to an image of this car</label>
+            <input type="text" name="image" >
+        </div>
+        
+        <div>
+            <label for="description">Additional details</label>
+            <div style="width: 350px; height: 200px;">
+                <input type="text" name="description" style="width: 100%; height: 100%;">
+            </div>
+        </div>
+        
+      
+        <button type="submit">
+            Update Car
+        </button>
+    </form>
+</body>
+</html>

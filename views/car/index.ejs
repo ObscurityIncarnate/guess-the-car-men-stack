@@ -3,15 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Document</title>
 </head>
 <body>
     <%- include("../../partials/nav.ejs") %>
     <h1>All Cars</h1>
-    <ul>
+    <section>
         <% cars.forEach(car => { %>
-            <li></li>
+            <a href="/cars/<%= car._id %>">
+                <div id="car" >
+                    <div>
+                        <img src="<%= car.image %>" alt="<%=car.image%>">
+                    </div>
+                    <div>
+                        <p><%=car.name%></p>
+                        <p><%=car.manufacturer%></p>
+                        <p><%=car.manufacture_date%></p>
+                    </div>
+                </div>
+            </a>
+            
         <% }); %>
-    </ul>
+    </section>
 </body>
 </html>
