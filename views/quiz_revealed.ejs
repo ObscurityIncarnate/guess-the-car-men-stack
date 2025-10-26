@@ -11,10 +11,10 @@
     <div style="width: 360px; height: 300px;">
         <img src="<%= car.image %>" alt="" style="width: 100%; height: 100%;">
     </div>
-    <form action="/quiz/reveal" method="POST">
+    <form action="/quiz" method="GET">
         <label for="name">Guess the car model from the image</label>
         <input type="text" name="name" id="" placeholder="E.g  Corolla.  " value="<%= guess %>">
-        <button type="submit">Check Answer</button>
+        <button type="submit">Try again</button>
     </form>
     <p><%= car.name.toLowerCase() == guess.toLowerCase() ? "You guessed correctly" : "You guessed incorrectly" %>, it is the <%= car.name %> </p>
     

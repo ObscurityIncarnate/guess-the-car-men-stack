@@ -12,7 +12,9 @@
     <p><%=car.manufacturer%></p>
     <p><%=car.manufacture_date%></p>
     <p><%=car.description%></p>
-    <img src="<%= car.image %>" alt="<%= car.name %>">
+    <div style="width: 360px; height: 300px;">
+        <img src="<%= car.image %>" alt="<%= car.name %>" style="width: 100%; height: 100%;">
+    </div>
     <form action="/cars/car._id?_method=DELETE" method="POST">
         <button type="submit">
             Remove Car
