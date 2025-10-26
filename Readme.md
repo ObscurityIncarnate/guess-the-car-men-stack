@@ -8,15 +8,17 @@ A website that stores and displays a collection of cars information, such as:
 
 
 ## All cars
-![alt text](/public/images/all_cars_display.png)
+![alt text](/public/images/all_cars_display.png)</br>
 Users are able to see a view of all cars in the database and some information on them at a glance. Users are also able to click on the inidividual car spaces to get more information on them.
 ## Specific car
-![alt text](/public/images/individual_car_display.png)
-Users are able to click 
+![alt text](/public/images/individual_car_display.png)</br>
+Users are able to update the details of the specific car. or delete the car entirely</br>
+Additionally there is a form page to add a new car into the database</br>
+![alt text](/public/images/add_car.png)</br>
 ## Quiz
 
-![alt text](/public/images/quiz.png)
-![alt text](/public/images/correct_quiz.png)
+![alt text](/public/images/quiz.png)</br>
+![alt text](/public/images/correct_quiz.png)</br>
 Additionally the website has a quiz feature. Where a random car from the database, and the user is prompted to answer what they think is the car model, based off of the image of the random car.  </br>
 
 If the user guesses the car correctly. They are given a message saying that they guessed correctly.</br>
