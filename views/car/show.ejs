@@ -7,11 +7,12 @@
     <title><%= car.name %></title>
 </head>
 <body>
+    <%- include("../../partials/nav.ejs") %>
     <h1><%= car.name %></h1>
     <p><%=car.manufacturer%></p>
     <p><%=car.manufacture_date%></p>
     <p><%=car.description%></p>
-    <p><%= car.image %></p>
+    <img src="<%= car.image %>" alt="<%= car.name %>">
     <form action="/cars/car._id?_method=DELETE" method="POST">
         <button type="submit">
             Remove Car

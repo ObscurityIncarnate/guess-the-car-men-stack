@@ -22,7 +22,7 @@
         
         <div>
             <label for="manufacture_date">Please specify when this car came into production</label>
-            <input type="date" id="manufacture_date" name="manufacture_date" placeholder="Enter the car model" min="1900-01-01" >
+            <input type="number" id="manufacture_date" name="manufacture_date" placeholder="Enter the car model" min="1900" max="2025" step="1">
         </div>
         <div>
             <label for="image">Please provide a link to an image of this car</label>
@@ -31,9 +31,9 @@
         
         <div>
             <label for="description">Additional details</label>
-            <div style="width: 350px; height: 200px;">
-                <input type="text" name="description" style="width: 100%; height: 100%;">
-            </div>
+            <textarea type="text" name="description" style="width: 350px; height: 250px;">
+
+            </textarea>
         </div>
         
         

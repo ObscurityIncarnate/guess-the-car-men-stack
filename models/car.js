@@ -3,7 +3,7 @@ const car = {
     name: {type: String, required: true},
     description: {type: String},
     image: {type: String, required: true},
-    manufacture_date: {type: Date},
+    manufacture_date: {type: Number},
     manufacturer: {type: String, required: true},  
 }
 

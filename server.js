@@ -29,15 +29,29 @@ connect();
 
 app.get("/", (req, res)=>{
     res.render("index");
+});
+
+
+app.get("/quiz", async (req, res)=>{
+    try {
+        const cars =await CARS.find();
+        const randomCar =  Math.floor(Math.random()*cars.length);
+        console.log(randomCar);
+        // console.log(cars[randomCar]);
+        res.render("quiz", {
+            car: cars[randomCar]
+        });
+    } catch (error) {
+        res.status(404).send("Counldnt find any car");
+        console.log(error);
+    }
+    
 })
 app.get("/cars", async (req, res)=>{
     try{
          const cars = await CARS.find();
-         res.render("car/index",
-            {
-                cars
-            }
-         );
+
+         res.render("car/index",{cars });
     }
     catch(error){
         console.log(error);
@@ -52,26 +66,52 @@ app.post("/cars", async (req, res) => {
         res.redirect(`/cars`);
     } catch (error) {
         res.status(500).send("Failed to Create a new Car");
+        console.log(error);
     } 
 })
 app.get("/cars/new", async (req, res) => {
     res.render("car/new")    
 })
-app.get("/cars/:carsId",  async (req, res)=>{
+app.get("/cars/:carId",  async (req, res)=>{
     try {
-        const carId = req.params.carsId;
+        const carId = req.params.carId;
         const car = await CARS.findById(carId);
+        if(!car){ res.status(404).send("Car not found")}
         res.render("car/show", {
             car
         });
     } catch (error) {
-        res.status(500).send("Something went wrong, please try again!")
+        res.status(500).send("Something went wrong, please try again!");
+        console.log(error);
     }
     
 })
-app.get("/cars/:carsId/edit",  async (req, res)=>{
+app.put("/cars/:carId", async(req, res)=>{
     try {
-        const carId = req.params.carsId;
+        const carId = req.params.carId;
+        
+        await CARS.findByIdAndUpdate(carId, req.body);
+        res.redirect(`/cars/${carId}`);
+        console.log("Successful update operation");
+    } catch (error) {
+       res.status(500).send("Failed to update details!");
+       console.log(error);
+    }
+})
+app.delete("/cars/:carId", async(req, res)=>{
+    try {
+        const carId =  req.params.carId;
+        await CARS.findByIdAndDelete(carId);
+        res.redirect("/cars");
+        console.log("Successful delete operation");
+    } catch (error) {
+        res.status(404).send("Failed to find and delete details!")
+        console.log(error)
+    }
+})
+app.get("/cars/:carId/edit",  async (req, res)=>{
+    try {
+        const carId = req.params.carId;
         const car = await CARS.findById(carId);
         res.render("car/edit", {
             car

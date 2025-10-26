@@ -7,31 +7,33 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/cars/123?_method=PUT" method="POST">
+    <form action="/cars/<%=car._id%>?_method=PUT" method="POST">
         <div>
             <label for="manufacturer">Please enter the cars brand or manufacturer</label>
-            <input type="text"name="manufacturer" placeholder="E.g Honda, Mclaren" required>
+            <input type="text"name="manufacturer" placeholder="E.g Honda, Mclaren" value="<%=car.manufacturer%>" required>
         </div>
 
         <div>
             <label for="name">Enter the cars model</label>
-            <input type="text"name="name" placeholder="E.g Cayenne, Corolla" required>
+            <input type="text"name="name" placeholder="E.g Cayenne, Corolla" value="<%= car.name %>" required>
         </div>
         
         <div>
             <label for="manufacture_date">Please specify when this car came into production</label>
-            <input type="date" id="manufacture_date" name="manufacture_date" placeholder="Enter the car model" min="1900-01-01" >
+            <input type="number" id="manufacture_date" name="manufacture_date" placeholder="Enter the car model" value="<%= car.manufacture_date %>" min="1900" max="2025" step="1">
         </div>
         <div>
             <label for="image">Please provide a link to an image of this car</label>
-            <input type="text" name="image" >
+            <input type="text" name="image" value="<%= car.image %>">
         </div>
         
         <div>
             <label for="description">Additional details</label>
-            <div style="width: 350px; height: 200px;">
-                <input type="text" name="description" style="width: 100%; height: 100%;">
-            </div>
+            <!-- <div style="width: 350px; height: 200px;"> -->
+                <textarea type="text" name="description" style="width: 350px; height: 250px;"> 
+                    
+                </textarea>
+            <!-- </div> -->
         </div>
         
       
