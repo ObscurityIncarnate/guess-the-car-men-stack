@@ -32,10 +32,13 @@ app.get("/", (req, res)=>{
 });
 
 
+let cars =await CARS.find();
+let randomCar =  Math.floor(Math.random()*cars.length);
+
 app.get("/quiz", async (req, res)=>{
     try {
-        const cars =await CARS.find();
-        const randomCar =  Math.floor(Math.random()*cars.length);
+        cars =await CARS.find();
+        randomCar =  Math.floor(Math.random()*cars.length);
         console.log(randomCar);
         // console.log(cars[randomCar]);
         res.render("quiz", {
@@ -46,6 +49,13 @@ app.get("/quiz", async (req, res)=>{
         console.log(error);
     }
     
+});
+app.post("/quiz", async (req, res) => {
+
+     res.render("quiz_revealed", {
+            car: cars[randomCar],
+            guess: req.body.name
+    });
 })
 app.get("/cars", async (req, res)=>{
     try{
